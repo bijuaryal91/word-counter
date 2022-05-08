@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <style>
+        body
+        {
+            padding: 100px 250px;
+            
+        }
+        h1
+        {
+            background: #0067B0;
+            text-align: center;
+            color: white;
+            padding: 10px 0px;
+            margin: 0;
+            font-family: Helvetica, sans-serif;
+        }
+        textarea
+        {
+            font-family: Helvetica, sans-serif;
+            width: 97.2%;
+            height: 250px;
+            padding: 10px;
+            outline: none;
+        }
+        p
+        {
+            background: #0067B0;
+            margin: 0;
+            padding: 10px 0px;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+        }
+        .word,.characters
+        {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Word and Character Counter</h1>
+    <textarea cols="30" rows="10"></textarea>
+    <p><span class="word">0</span> Words and <span class="characters">0</span> Characters.</p>
+    <script>
+        var text=document.querySelector('textarea');
+        var word=document.querySelector('.word');
+        var char=document.querySelector('.characters');
+        text.oninput=()=>
+        {
+            let txt=text.value;
+            let chr=txt.length;
+            let wordArray=txt.split(" ");
+            let clean=wordArray.filter(function(elm)
+            {
+                return elm;
+            });
+            let wrd=clean.length;
+
+            char.innerHTML=chr;
+            word.innerHTML=wrd;
+        
+        }
+    </script>
+</body>
+</html>
